@@ -1,0 +1,9 @@
+{
+  "name": "COCO｜家族のAI生活アシスタント",
+  "short_name": "COCO",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#fff9f8",
+  "theme_color": "#f7e9ec",
+  "lang": "ja"
+}

@@ -1,3 +1,5 @@
+
+
 <!doctype html>
 
 <html lang="ja">
@@ -20,97 +22,37 @@
 
 <style>
 
-:root{
-
-  --bg:#fff9f8;
-
-  --paper:#fff;
-
-  --ink:#382b31;
-
-  --muted:#8b777f;
-
-  --pink:#d987a0;
-
-  --line:#f0e3e6;
-
-  --shadow:0 8px 26px #6f3d5010;
-
-}
+:root{--bg:#fff9f8;--paper:#fff;--ink:#382b31;--muted:#8b777f;--pink:#d987a0;--line:#f0e3e6;--shadow:0 8px 26px #6f3d5010}
 
 *{box-sizing:border-box}
 
-body{
-
-  margin:0;background:var(--bg);color:var(--ink);
-
-  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif
-
-}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
 
 button,input,textarea{font:inherit}
 
 button{cursor:pointer}
 
-.app{
+.app{max-width:760px;margin:auto;min-height:100vh;padding:env(safe-area-inset-top) 16px calc(92px + env(safe-area-inset-bottom))}
 
-  max-width:760px;margin:auto;min-height:100vh;
+header{padding:20px 4px 14px;display:flex;align-items:center;justify-content:space-between}
 
-  padding:env(safe-area-inset-top) 16px calc(92px + env(safe-area-inset-bottom))
-
-}
-
-header{
-
-  padding:20px 4px 14px;display:flex;
-
-  align-items:center;justify-content:space-between
-
-}
-
-.brand{
-
-  font-family:Georgia,serif;font-size:29px;
-
-  letter-spacing:3px;color:#9f526d;font-weight:bold
-
-}
+.brand{font-family:Georgia,serif;font-size:29px;letter-spacing:3px;color:#9f526d;font-weight:bold}
 
 .sub{font-size:10px;letter-spacing:2px;color:var(--muted)}
 
 .profile{font-size:12px;color:var(--muted);text-align:right}
 
-.hero{
-
-  background:linear-gradient(135deg,#f8e5eb,#fff0e9);
-
-  border:1px solid #f3dce3;border-radius:24px;
-
-  padding:20px;margin:8px 0 18px;box-shadow:var(--shadow)
-
-}
+.hero{background:linear-gradient(135deg,#f8e5eb,#fff0e9);border:1px solid #f3dce3;border-radius:24px;padding:20px;margin:8px 0 18px;box-shadow:var(--shadow)}
 
 .hero h1{font-size:20px;margin:0 0 7px}
 
 .hero p{font-size:12px;color:#806b73;margin:0}
 
-.section-title{
-
-  display:flex;align-items:center;justify-content:space-between;
-
-  margin:22px 2px 10px;font-weight:700
-
-}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px;font-weight:700}
 
 .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
 
-.tile,.panel{
-
-  background:var(--paper);border:1px solid var(--line);
-
-  border-radius:18px;padding:15px;box-shadow:var(--shadow)
-
-}
+.tile,.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}
 
 .tile{min-height:100px;text-align:left;color:var(--ink)}
 
@@ -124,35 +66,17 @@ header{
 
 .muted{color:var(--muted);font-size:12px}
 
-.btn{
-
-  border:0;border-radius:14px;background:var(--pink);
-
-  color:white;padding:11px 15px;font-weight:700
-
-}
+.btn{border:0;border-radius:14px;background:var(--pink);color:white;padding:11px 15px;font-weight:700}
 
 .btn.secondary{background:#f7e8ed;color:#8e4d65}
 
 .btn.ghost{background:white;color:#8e4d65;border:1px solid var(--line)}
 
-input,textarea{
-
-  width:100%;border:1px solid var(--line);background:#fffdfd;
-
-  border-radius:12px;padding:12px;color:var(--ink);margin:5px 0 10px
-
-}
+input,textarea{width:100%;border:1px solid var(--line);background:#fffdfd;border-radius:12px;padding:12px;color:var(--ink);margin:5px 0 10px}
 
 textarea{min-height:80px;resize:vertical}
 
-.item{
-
-  display:flex;align-items:center;gap:9px;
-
-  padding:12px 2px;border-bottom:1px solid var(--line)
-
-}
+.item{display:flex;align-items:center;gap:9px;padding:12px 2px;border-bottom:1px solid var(--line)}
 
 .item:last-child{border:0}
 
@@ -160,35 +84,11 @@ textarea{min-height:80px;resize:vertical}
 
 .item small{display:block;color:var(--muted);font-size:11px}
 
-.item button{
+.item button{border:0;background:#f8edf0;color:#9b6075;border-radius:10px;padding:7px 10px}
 
-  border:0;background:#f8edf0;color:#9b6075;
+nav{position:fixed;bottom:0;left:0;right:0;background:#fffdfdf2;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:9px 8px calc(9px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:4px;z-index:5}
 
-  border-radius:10px;padding:7px 10px
-
-}
-
-nav{
-
-  position:fixed;bottom:0;left:0;right:0;
-
-  background:#fffdfdf2;backdrop-filter:blur(14px);
-
-  border-top:1px solid var(--line);
-
-  padding:9px 8px calc(9px + env(safe-area-inset-bottom));
-
-  display:flex;justify-content:center;gap:4px;z-index:5
-
-}
-
-nav button{
-
-  flex:1;max-width:120px;border:0;background:transparent;
-
-  color:#9a858d;font-size:10px;padding:7px 2px;border-radius:12px
-
-}
+nav button{flex:1;max-width:120px;border:0;background:transparent;color:#9a858d;font-size:10px;padding:7px 2px;border-radius:12px}
 
 nav button.active{background:#f8e8ed;color:#984e69}
 
@@ -198,31 +98,13 @@ nav span{display:block;font-size:19px;margin-bottom:3px}
 
 .auth{max-width:420px;margin:12vh auto;padding:24px}
 
-.notice{
+.notice{background:#fff5e8;border:1px solid #f2dfc3;border-radius:13px;padding:12px;font-size:12px;color:#806744;margin:12px 0}
 
-  background:#fff5e8;border:1px solid #f2dfc3;
-
-  border-radius:13px;padding:12px;font-size:12px;
-
-  color:#806744;margin:12px 0
-
-}
-
-.tag{
-
-  font-size:10px;background:#f8e8ed;color:#98556e;
-
-  padding:4px 8px;border-radius:20px
-
-}
+.tag{font-size:10px;background:#f8e8ed;color:#98556e;padding:4px 8px;border-radius:20px}
 
 .empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
 
-@media(min-width:600px){
-
-  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
-
-}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 
 </style>
 
@@ -240,13 +122,9 @@ nav span{display:block;font-size:19px;margin-bottom:3px}
 
   <p class="muted">予定も、やることも、お買い物も。家族で共有できる場所。</p>
 
-  <button id="googleLogin" class="btn" style="width:100%;margin-top:18px">
+  <button id="googleLogin" class="btn" style="width:100%;margin-top:18px">Googleでログイン</button>
 
-    Googleでログイン
-
-  </button>
-
-  <div class="notice">利用にはGoogleログインが必要です。家族のデータは登録メンバーだけが見られる設計です。</div>
+  <div class="notice">Googleログインが必要です。家族のデータは登録メンバーだけが見られる設計です。</div>
 
   <p id="authError" class="muted"></p>
 
@@ -256,23 +134,13 @@ nav span{display:block;font-size:19px;margin-bottom:3px}
 
   <header>
 
-    <div>
-
-      <div class="brand">COCO</div>
-
-      <div class="sub">FAMILY LIFE ASSISTANT</div>
-
-    </div>
+    <div><div class="brand">COCO</div><div class="sub">FAMILY LIFE ASSISTANT</div></div>
 
     <div class="profile">
 
       <span id="userName"></span><br>
 
-      <button id="logout" class="btn ghost" style="padding:6px 10px;margin-top:5px">
-
-        ログアウト
-
-      </button>
+      <button id="logout" class="btn ghost" style="padding:6px 10px;margin-top:5px">ログアウト</button>
 
     </div>
 
@@ -346,6 +214,8 @@ let familyId="";
 
 let page="home";
 
+let initializing=false;
+
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({
 
   "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
@@ -360,19 +230,29 @@ function showError(e){
 
 }
 
-// 家族IDを必ず確認してから保存先を作る
+// ★すべての家族データの保存先をこの関数に統一
 
 function subcol(name){
 
   if(!currentUser)throw new Error("ログイン情報が確認できないよ。");
 
-  if(!familyId)throw new Error("家族IDが設定されていないよ。一度ログアウトして再ログインしてね。");
+  if(!familyId||typeof familyId!=="string"){
 
-  return collection(db,"families",familyId,name);
+    throw new Error("家族IDが設定されていないよ。");
+
+  }
+
+  if(!name||typeof name!=="string"){
+
+    throw new Error("保存先の指定が正しくないよ。");
+
+  }
+
+  const familyRef=doc(db,"families",familyId);
+
+  return collection(familyRef,name);
 
 }
-
-// ログイン
 
 $("googleLogin").onclick=async()=>{
 
@@ -386,15 +266,7 @@ $("googleLogin").onclick=async()=>{
 
     }catch(e){
 
-      if([
-
-        "auth/popup-blocked",
-
-        "auth/popup-closed-by-user",
-
-        "auth/operation-not-supported-in-this-environment"
-
-      ].includes(e.code)){
+      if(["auth/popup-blocked","auth/popup-closed-by-user","auth/operation-not-supported-in-this-environment"].includes(e.code)){
 
         await signInWithRedirect(auth,provider);
 
@@ -420,7 +292,7 @@ $("nav").addEventListener("click",e=>{
 
   const b=e.target.closest("button[data-page]");
 
-  if(b)renderPage(b.dataset.page);
+  if(b)renderPage(b.dataset.page).catch(showError);
 
 });
 
@@ -428,17 +300,23 @@ $("nav").addEventListener("click",e=>{
 
 onAuthStateChanged(auth,async user=>{
 
+  if(initializing)return;
+
+  initializing=true;
+
   currentUser=user;
 
-  if(!user){
+  familyId="";
 
-    familyId="";
+  if(!user){
 
     $("authView").classList.remove("hidden");
 
     $("appView").classList.add("hidden");
 
     $("nav").classList.add("hidden");
+
+    initializing=false;
 
     return;
 
@@ -456,17 +334,23 @@ onAuthStateChanged(auth,async user=>{
 
     await ensureFamily();
 
+    if(!familyId)throw new Error("家族IDを取得できなかったよ。");
+
     await renderPage(page);
 
   }catch(e){
 
     showError(e);
 
+  }finally{
+
+    initializing=false;
+
   }
 
 });
 
-// 家族情報の取得・初期設定
+// 家族IDをFirestoreから確認する
 
 async function ensureFamily(){
 
@@ -474,49 +358,45 @@ async function ensureFamily(){
 
   const userSnap=await getDoc(userRef);
 
-  // すでに家族IDがある場合
-
   if(userSnap.exists()&&userSnap.data().familyId){
 
-    const oldFamilyId=userSnap.data().familyId;
+    const savedFamilyId=userSnap.data().familyId;
 
-    const oldFamilyRef=doc(db,"families",oldFamilyId);
+    const savedFamilyRef=doc(db,"families",savedFamilyId);
 
-    const oldFamilySnap=await getDoc(oldFamilyRef);
+    const savedFamilySnap=await getDoc(savedFamilyRef);
 
-    if(oldFamilySnap.exists()&&
+    if(savedFamilySnap.exists()){
 
-       Array.isArray(oldFamilySnap.data().members)&&
+      const members=savedFamilySnap.data().members||[];
 
-       oldFamilySnap.data().members.includes(currentUser.uid)){
+      if(members.includes(currentUser.uid)){
 
-      // 既存家族を使うか、招待コードで別の家族に参加するか選択
+        const answer=prompt(
 
-      const answer=prompt(
+          "現在の家族データが見つかったよ。\n別の家族の招待コードを入力する場合は入力してね。\n今の家族を使う場合は空欄のままOK。",
 
-        "すでに家族データがあるよ。\n別の家族の招待コードを入力すると、その家族に参加できるよ。\n今の家族を使う場合は空欄のままOK。",
+          ""
 
-        ""
+        );
 
-      );
+        if(answer&&answer.trim()){
 
-      if(answer&&answer.trim()){
+          await joinFamilyWithCode(answer.trim().toUpperCase());
 
-        await joinFamilyWithCode(answer.trim().toUpperCase());
+          return;
+
+        }
+
+        familyId=savedFamilyId;
 
         return;
 
       }
 
-      familyId=oldFamilyId;
-
-      return;
-
     }
 
   }
-
-  // 家族IDがない場合は招待コードまたは新規家族作成
 
   const code=(prompt(
 
@@ -584,7 +464,7 @@ function randomCode(){
 
 async function createInvite(){
 
-  if(!familyId)throw new Error("家族IDが確認できないよ。再ログインしてね。");
+  if(!familyId)throw new Error("家族IDが確認できないよ。");
 
   const familySnap=await getDoc(doc(db,"families",familyId));
 
@@ -598,11 +478,9 @@ async function createInvite(){
 
   const code=randomCode();
 
-  const inviteRef=doc(db,"invites",code);
+  await setDoc(doc(db,"invites",code),{
 
-  await setDoc(inviteRef,{
-
-    familyId:familyId,
+    familyId,
 
     createdBy:currentUser.uid,
 
@@ -630,25 +508,17 @@ async function joinFamilyWithCode(code){
 
   const userRef=doc(db,"users",currentUser.uid);
 
-  let joinedFamilyId="";
+  let targetFamilyId="";
 
-  await runTransaction(db,async transaction=>{
+  await runTransaction(db,async tx=>{
 
-    const inviteSnap=await transaction.get(inviteRef);
+    const inviteSnap=await tx.get(inviteRef);
 
-    if(!inviteSnap.exists()){
-
-      throw new Error("招待コードが見つからないよ。");
-
-    }
+    if(!inviteSnap.exists())throw new Error("招待コードが見つからないよ。");
 
     const invite=inviteSnap.data();
 
-    if(invite.used){
-
-      throw new Error("この招待コードはすでに使用済みだよ。");
-
-    }
+    if(invite.used)throw new Error("この招待コードはすでに使用済みだよ。");
 
     if(typeof invite.expiresAt!=="number"||invite.expiresAt<Date.now()){
 
@@ -656,21 +526,13 @@ async function joinFamilyWithCode(code){
 
     }
 
-    if(!invite.familyId){
-
-      throw new Error("招待先の家族IDが登録されていないよ。");
-
-    }
+    if(!invite.familyId)throw new Error("招待先の家族IDがないよ。");
 
     const familyRef=doc(db,"families",invite.familyId);
 
-    const familySnap=await transaction.get(familyRef);
+    const familySnap=await tx.get(familyRef);
 
-    if(!familySnap.exists()){
-
-      throw new Error("招待先の家族が見つからないよ。");
-
-    }
+    if(!familySnap.exists())throw new Error("招待先の家族が見つからないよ。");
 
     const family=familySnap.data();
 
@@ -682,9 +544,9 @@ async function joinFamilyWithCode(code){
 
     }
 
-    joinedFamilyId=invite.familyId;
+    targetFamilyId=invite.familyId;
 
-    transaction.update(familyRef,{
+    tx.update(familyRef,{
 
       members:[...members,currentUser.uid],
 
@@ -694,7 +556,7 @@ async function joinFamilyWithCode(code){
 
     });
 
-    transaction.update(inviteRef,{
+    tx.update(inviteRef,{
 
       used:true,
 
@@ -704,13 +566,13 @@ async function joinFamilyWithCode(code){
 
     });
 
-    transaction.set(userRef,{
+    tx.set(userRef,{
 
       displayName:currentUser.displayName||"",
 
       email:currentUser.email||"",
 
-      familyId:joinedFamilyId,
+      familyId:targetFamilyId,
 
       createdAt:serverTimestamp()
 
@@ -718,25 +580,19 @@ async function joinFamilyWithCode(code){
 
   });
 
-  // 参加処理の完了後に家族IDを確定
+  const check=await getDoc(userRef);
 
-  const joinedUserSnap=await getDoc(userRef);
+  if(!check.exists()||check.data().familyId!==targetFamilyId){
 
-  if(!joinedUserSnap.exists()||
-
-     joinedUserSnap.data().familyId!==joinedFamilyId||
-
-     !joinedFamilyId){
-
-    throw new Error("家族への参加確認ができなかったよ。再ログインしてね。");
+    throw new Error("家族参加の確認ができなかったよ。");
 
   }
 
-  familyId=joinedFamilyId;
+  familyId=targetFamilyId;
 
 }
 
-// 画面切り替え
+// 画面表示
 
 async function renderPage(p){
 
@@ -764,17 +620,7 @@ async function renderPage(p){
 
   };
 
-  let body=`
-
-    <div class="hero">
-
-      <h1>${titles[p]||"COCO"}</h1>
-
-      <p>毎日のことを、家族みんなで共有しよう。</p>
-
-    </div>
-
-  `;
+  let body=`<div class="hero"><h1>${titles[p]||"COCO"}</h1><p>毎日のことを、家族みんなで共有しよう。</p></div>`;
 
   if(p==="home"){
 
@@ -800,9 +646,7 @@ async function renderPage(p){
 
       <div class="section-title">最近のタスク</div>
 
-      <div id="recent" class="panel"><div class="empty">読み込み中…</div></div>
-
-    `;
+      <div id="recent" class="panel"><div class="empty">読み込み中…</div></div>`;
 
     $("main").innerHTML=body;
 
@@ -846,9 +690,7 @@ async function renderPage(p){
 
       <div class="section-title">保存したメモ</div>
 
-      <div id="records" class="panel"><div class="empty">読み込み中…</div></div>
-
-    `;
+      <div id="records" class="panel"><div class="empty">読み込み中…</div></div>`;
 
   }
 
@@ -880,9 +722,7 @@ async function renderPage(p){
 
         <div id="inviteResult"></div>
 
-      </div>
-
-    `;
+      </div>`;
 
   }
 
@@ -892,17 +732,9 @@ async function renderPage(p){
 
   const add=$("addRecord");
 
-  if(add){
+  if(add)add.onclick=()=>saveRecord(add.dataset.col);
 
-    add.onclick=()=>saveRecord(add.dataset.col);
-
-  }
-
-  if($("aiSave")){
-
-    $("aiSave").onclick=()=>saveRecord("ai_memos","aiText");
-
-  }
+  if($("aiSave"))$("aiSave").onclick=()=>saveRecord("ai_memos","aiText");
 
   if($("makeInvite")){
 
@@ -920,15 +752,9 @@ async function renderPage(p){
 
             <h2>${code}</h2>
 
-          </div>
+          </div>`;
 
-        `;
-
-      }catch(e){
-
-        showError(e);
-
-      }
+      }catch(e){showError(e);}
 
     };
 
@@ -940,19 +766,7 @@ async function renderPage(p){
 
 function tile(icon,title,desc,go){
 
-  return `
-
-    <button class="tile" data-go="${go}">
-
-      <span class="emoji">${icon}</span>
-
-      <strong>${title}</strong>
-
-      <small>${desc}</small>
-
-    </button>
-
-  `;
+  return `<button class="tile" data-go="${go}"><span class="emoji">${icon}</span><strong>${title}</strong><small>${desc}</small></button>`;
 
 }
 
@@ -990,13 +804,7 @@ function form(heading,dateLabel,col,placeholder){
 
     <div class="section-title">登録した内容</div>
 
-    <div id="records" class="panel">
-
-      <div class="empty">読み込み中…</div>
-
-    </div>
-
-  `;
+    <div id="records" class="panel"><div class="empty">読み込み中…</div></div>`;
 
 }
 
@@ -1010,29 +818,11 @@ async function saveRecord(col,noteId="recordNote"){
 
   const date=$("recordDate")?.value||"";
 
-  if(!title&&!note){
-
-    alert("内容を入力してね");
-
-    return;
-
-  }
+  if(!title&&!note){alert("内容を入力してね");return;}
 
   try{
 
-    // 保存前に家族IDを再確認
-
-    if(!familyId){
-
-      await ensureFamily();
-
-    }
-
-    if(!familyId){
-
-      throw new Error("家族IDが確認できないよ。ログアウトして再ログインしてね。");
-
-    }
+    if(!familyId)throw new Error("家族IDが設定されていないよ。");
 
     await addDoc(subcol(col),{
 
@@ -1058,11 +848,7 @@ async function saveRecord(col,noteId="recordNote"){
 
     await loadRecords(page);
 
-  }catch(e){
-
-    showError(e);
-
-  }
+  }catch(e){showError(e);}
 
 }
 
@@ -1072,21 +858,11 @@ async function loadRecords(p){
 
   const map={
 
-    schedule:"schedules",
+    schedule:"schedules",tasks:"tasks",kids:"children",
 
-    tasks:"tasks",
+    shopping:"shopping",money:"household",properties:"properties",
 
-    kids:"children",
-
-    shopping:"shopping",
-
-    money:"household",
-
-    properties:"properties",
-
-    work:"work",
-
-    ai:"ai_memos"
+    work:"work",ai:"ai_memos"
 
   };
 
@@ -1095,8 +871,6 @@ async function loadRecords(p){
   if(!col)return;
 
   try{
-
-    if(!familyId)throw new Error("家族IDが設定されていないよ。");
 
     const snap=await getDocs(subcol(col));
 
@@ -1112,33 +886,25 @@ async function loadRecords(p){
 
     wireRecordButtons(col);
 
-  }catch(e){
-
-    showError(e);
-
-  }
+  }catch(e){showError(e);}
 
 }
 
 function recordHtml(id,d){
 
-  return `
+  return `<div class="item">
 
-    <div class="item">
+    <div class="grow">
 
-      <div class="grow">
+      <strong>${esc(d.title||"メモ")}</strong>
 
-        <strong>${esc(d.title||"メモ")}</strong>
-
-        <small>${esc(d.date||"日付なし")}　${esc(d.note||"")}</small>
-
-      </div>
-
-      <button data-delete="${id}">削除</button>
+      <small>${esc(d.date||"日付なし")}　${esc(d.note||"")}</small>
 
     </div>
 
-  `;
+    <button data-delete="${id}">削除</button>
+
+  </div>`;
 
 }
 
@@ -1154,21 +920,11 @@ function wireRecordButtons(col){
 
       try{
 
-        if(!familyId)throw new Error("家族IDが設定されていないよ。");
-
-        await deleteDoc(
-
-          doc(db,"families",familyId,col,b.dataset.delete)
-
-        );
+        await deleteDoc(doc(subcol(col),b.dataset.delete));
 
         await loadRecords(page);
 
-      }catch(e){
-
-        showError(e);
-
-      }
+      }catch(e){showError(e);}
 
     };
 
@@ -1181,8 +937,6 @@ function wireRecordButtons(col){
 async function loadRecent(){
 
   try{
-
-    if(!familyId)throw new Error("家族IDが設定されていないよ。");
 
     const snap=await getDocs(subcol("tasks"));
 
@@ -1206,17 +960,13 @@ async function loadRecent(){
 
           </div>
 
-        </div>
-
-      `).join("");
+        </div>`).join("");
 
   }catch(e){
 
     console.error(e);
 
-    $("recent").innerHTML=
-
-      '<div class="empty">タスクを読み込めなかったよ。</div>';
+    $("recent").innerHTML='<div class="empty">タスクを読み込めなかったよ。</div>';
 
   }
 

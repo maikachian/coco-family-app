@@ -1,139 +1,108 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#f7e9ec">
-  <title>COCO｜家族のAI生活アシスタント</title>
-  <link rel="manifest" href="./manifest.json">
-  <style>
-    :root{--bg:#fff9f8;--paper:#fff;--ink:#382b31;--muted:#8b777f;--pink:#d987a0;--pink2:#f5dce4;--line:#f0e3e6;--gold:#b98b55;--shadow:0 8px 26px #6f3d5010}
-    *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
-    button,input,textarea,select{font:inherit} button{cursor:pointer}
-    .app{max-width:760px;margin:auto;min-height:100vh;padding:env(safe-area-inset-top) 16px calc(92px + env(safe-area-inset-bottom))}
-    header{padding:20px 4px 14px;display:flex;align-items:center;justify-content:space-between}
-    .brand{font-family:Georgia,serif;font-size:29px;letter-spacing:3px;color:#9f526d;font-weight:bold}.sub{font-size:10px;letter-spacing:2px;color:var(--muted)}
-    .profile{font-size:12px;color:var(--muted);text-align:right}
-    .hero{background:linear-gradient(135deg,#f8e5eb,#fff0e9);border:1px solid #f3dce3;border-radius:24px;padding:20px;margin:8px 0 18px;box-shadow:var(--shadow)}
-    .hero h1{font-size:20px;margin:0 0 7px}.hero p{font-size:12px;color:#806b73;margin:0}
-    .section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px;font-weight:700}
-    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-    .tile,.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}
-    .tile{min-height:100px;text-align:left;color:var(--ink)}.tile .emoji{font-size:23px}.tile strong{display:block;margin-top:8px;font-size:14px}.tile small{color:var(--muted);font-size:11px}
-    .panel{margin:10px 0}.muted{color:var(--muted);font-size:12px}.btn{border:0;border-radius:14px;background:var(--pink);color:white;padding:11px 15px;font-weight:700}.btn.secondary{background:#f7e8ed;color:#8e4d65}.btn.ghost{background:white;color:#8e4d65;border:1px solid var(--line)}
-    .row{display:flex;gap:8px;align-items:center}.row>*{min-width:0}.row input{flex:1}
-    input,textarea,select{width:100%;border:1px solid var(--line);background:#fffdfd;border-radius:12px;padding:12px;color:var(--ink);margin:5px 0 10px}
-    textarea{min-height:80px;resize:vertical}.item{display:flex;align-items:center;gap:9px;padding:12px 2px;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item .grow{flex:1}.item small{display:block;color:var(--muted);font-size:11px}.item button{border:0;background:#f8edf0;color:#9b6075;border-radius:10px;padding:7px 10px}
-    nav{position:fixed;bottom:0;left:0;right:0;background:#fffdfdf2;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:9px 8px calc(9px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:4px;z-index:5}
-    nav button{flex:1;max-width:120px;border:0;background:transparent;color:#9a858d;font-size:10px;padding:7px 2px;border-radius:12px}nav button.active{background:#f8e8ed;color:#984e69}nav span{display:block;font-size:19px;margin-bottom:3px}
-    .hidden{display:none!important}.auth{max-width:420px;margin:12vh auto;padding:24px}.auth h1{font-family:Georgia,serif;color:#9f526d;letter-spacing:4px}.notice{background:#fff5e8;border:1px solid #f2dfc3;border-radius:13px;padding:12px;font-size:12px;color:#806744;margin:12px 0}
-    .tag{font-size:10px;background:#f8e8ed;color:#98556e;padding:4px 8px;border-radius:20px}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
-    @media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f7e9ec">
+<title>COCO｜家族のAI生活アシスタント</title>
+<link rel="manifest" href="./manifest.json">
+<style>
+:root{--bg:#fff9f8;--paper:#fff;--ink:#382b31;--muted:#8b777f;--pink:#d987a0;--line:#f0e3e6;--shadow:0 8px 26px #6f3d5010}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif}
+button,input,textarea{font:inherit}button{cursor:pointer}.app{max-width:760px;margin:auto;min-height:100vh;padding:env(safe-area-inset-top) 16px calc(92px + env(safe-area-inset-bottom))}
+header{padding:20px 4px 14px;display:flex;align-items:center;justify-content:space-between}.brand{font-family:Georgia,serif;font-size:29px;letter-spacing:3px;color:#9f526d;font-weight:bold}.sub{font-size:10px;letter-spacing:2px;color:var(--muted)}.profile{font-size:12px;color:var(--muted);text-align:right}
+.hero{background:linear-gradient(135deg,#f8e5eb,#fff0e9);border:1px solid #f3dce3;border-radius:24px;padding:20px;margin:8px 0 18px;box-shadow:var(--shadow)}.hero h1{font-size:20px;margin:0 0 7px}.hero p{font-size:12px;color:#806b73;margin:0}
+.section-title{display:flex;align-items:center;justify-content:space-between;margin:22px 2px 10px;font-weight:700}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tile,.panel{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:15px;box-shadow:var(--shadow)}.tile{min-height:100px;text-align:left;color:var(--ink)}.tile .emoji{font-size:23px}.tile strong{display:block;margin-top:8px;font-size:14px}.tile small{color:var(--muted);font-size:11px}
+.panel{margin:10px 0}.muted{color:var(--muted);font-size:12px}.btn{border:0;border-radius:14px;background:var(--pink);color:white;padding:11px 15px;font-weight:700}.btn.secondary{background:#f7e8ed;color:#8e4d65}.btn.ghost{background:white;color:#8e4d65;border:1px solid var(--line)}
+input,textarea{width:100%;border:1px solid var(--line);background:#fffdfd;border-radius:12px;padding:12px;color:var(--ink);margin:5px 0 10px}textarea{min-height:80px;resize:vertical}
+.item{display:flex;align-items:center;gap:9px;padding:12px 2px;border-bottom:1px solid var(--line)}.item:last-child{border:0}.item .grow{flex:1}.item small{display:block;color:var(--muted);font-size:11px}.item button{border:0;background:#f8edf0;color:#9b6075;border-radius:10px;padding:7px 10px}
+nav{position:fixed;bottom:0;left:0;right:0;background:#fffdfdf2;backdrop-filter:blur(14px);border-top:1px solid var(--line);padding:9px 8px calc(9px + env(safe-area-inset-bottom));display:flex;justify-content:center;gap:4px;z-index:5}nav button{flex:1;max-width:120px;border:0;background:transparent;color:#9a858d;font-size:10px;padding:7px 2px;border-radius:12px}nav button.active{background:#f8e8ed;color:#984e69}nav span{display:block;font-size:19px;margin-bottom:3px}
+.hidden{display:none!important}.auth{max-width:420px;margin:12vh auto;padding:24px}.notice{background:#fff5e8;border:1px solid #f2dfc3;border-radius:13px;padding:12px;font-size:12px;color:#806744;margin:12px 0}.tag{font-size:10px;background:#f8e8ed;color:#98556e;padding:4px 8px;border-radius:20px}.empty{padding:24px;text-align:center;color:var(--muted);font-size:13px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+</style>
 </head>
 <body>
-<div id="authView" class="auth panel">
-  <div class="brand">COCO</div><div class="sub">FAMILY LIFE ASSISTANT</div>
-  <h2>家族の毎日を、ひとつに。</h2>
-  <p class="muted">予定も、やることも、お買い物も。家族で共有できる場所。</p>
-  <button id="googleLogin" class="btn" style="width:100%;margin-top:18px">Googleでログイン</button>
-  <div class="notice">利用にはGoogleログインが必要です。家族のデータは登録メンバーだけが見られる設計です。</div>
-  <p id="authError" class="muted"></p>
-</div>
-<div id="appView" class="app hidden">
-  <header><div><div class="brand">COCO</div><div class="sub">FAMILY LIFE ASSISTANT</div></div><div class="profile"><span id="userName"></span><br><button id="logout" class="btn ghost" style="padding:6px 10px;margin-top:5px">ログアウト</button></div></header>
-  <main id="main"></main>
-</div>
-<nav id="nav" class="hidden">
-  <button data-page="home" class="active"><span>⌂</span>ホーム</button>
-  <button data-page="schedule"><span>♡</span>予定</button>
-  <button data-page="tasks"><span>✓</span>タスク</button>
-  <button data-page="kids"><span>✿</span>子ども</button>
-  <button data-page="more"><span>＋</span>その他</button>
-</nav>
+<div id="authView" class="auth panel"><div class="brand">COCO</div><div class="sub">FAMILY LIFE ASSISTANT</div><h2>家族の毎日を、ひとつに。</h2><p class="muted">予定も、やることも、お買い物も。家族で共有できる場所。</p><button id="googleLogin" class="btn" style="width:100%;margin-top:18px">Googleでログイン</button><div class="notice">利用にはGoogleログインが必要です。家族のデータは登録メンバーだけが見られる設計です。</div><p id="authError" class="muted"></p></div>
+<div id="appView" class="app hidden"><header><div><div class="brand">COCO</div><div class="sub">FAMILY LIFE ASSISTANT</div></div><div class="profile"><span id="userName"></span><br><button id="logout" class="btn ghost" style="padding:6px 10px;margin-top:5px">ログアウト</button></div></header><main id="main"></main></div>
+<nav id="nav" class="hidden"><button data-page="home" class="active"><span>⌂</span>ホーム</button><button data-page="schedule"><span>♡</span>予定</button><button data-page="tasks"><span>✓</span>タスク</button><button data-page="kids"><span>✿</span>子ども</button><button data-page="more"><span>＋</span>その他</button></nav>
 <script type="module">
-import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signInWithRedirect, getRedirectResult, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, collection, addDoc, getDocs, deleteDoc, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyBmQqFcZQAPtN_yjOvV-vJRzJwURtWgOC0",
-  authDomain: "coco-family-app.firebaseapp.com",
-  projectId: "coco-family-app",
-  storageBucket: "coco-family-app.firebasestorage.app",
-  messagingSenderId: "147578733101",
-  appId: "1:147578733101:web:ad2b302f2ce2f375af2ea4"
-};
-const app=initializeApp(firebaseConfig), auth=getAuth(app), db=getFirestore(app);
-const $=id=>document.getElementById(id);
-let currentUser=null, familyId=localStorage.getItem("cocoFamilyId")||"", page="home", records=[];
+import {initializeApp} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+import {getAuth,GoogleAuthProvider,signInWithPopup,signInWithRedirect,onAuthStateChanged,signOut} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+import {getFirestore,doc,getDoc,setDoc,collection,addDoc,getDocs,deleteDoc,runTransaction,serverTimestamp} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+const firebaseConfig={apiKey:"AIzaSyBmQqFcZQAPtN_yjOvV-vJRzJwURtWgOC0",authDomain:"coco-family-app.firebaseapp.com",projectId:"coco-family-app",storageBucket:"coco-family-app.firebasestorage.app",messagingSenderId:"147578733101",appId:"1:147578733101:web:ad2b302f2ce2f375af2ea4"};
+const app=initializeApp(firebaseConfig),auth=getAuth(app),db=getFirestore(app),$=id=>document.getElementById(id);
+let currentUser=null,familyId="",page="home";
 const esc=s=>String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
-const familyRef=()=>doc(db,"families",familyId);
 const subcol=name=>collection(db,"families",familyId,name);
-function showError(e){console.error(e);alert("エラーが発生したよ: "+(e.message||e));}
+function showError(e){console.error(e);alert("エラーが発生したよ: "+(e.message||e))}
 $("googleLogin").onclick=async()=>{try{const p=new GoogleAuthProvider();try{await signInWithPopup(auth,p)}catch(e){if(["auth/popup-blocked","auth/popup-closed-by-user","auth/operation-not-supported-in-this-environment"].includes(e.code))await signInWithRedirect(auth,p);else throw e}}catch(e){$("authError").textContent="ログインできませんでした: "+e.message}};
 $("logout").onclick=()=>signOut(auth);
 $("nav").addEventListener("click",e=>{const b=e.target.closest("button[data-page]");if(b)renderPage(b.dataset.page)});
-onAuthStateChanged(auth,async user=>{
- currentUser=user;
- if(!user){$("authView").classList.remove("hidden");$("appView").classList.add("hidden");$("nav").classList.add("hidden");return}
- $("authView").classList.add("hidden");$("appView").classList.remove("hidden");$("nav").classList.remove("hidden");$("userName").textContent=user.displayName||user.email||"ログイン中";
- try{await ensureFamily();await renderPage(page)}catch(e){showError(e)}
-});
+onAuthStateChanged(auth,async user=>{currentUser=user;if(!user){$("authView").classList.remove("hidden");$("appView").classList.add("hidden");$("nav").classList.add("hidden");return}
+$("authView").classList.add("hidden");$("appView").classList.remove("hidden");$("nav").classList.remove("hidden");$("userName").textContent=user.displayName||user.email||"ログイン中";
+try{await ensureFamily();await renderPage(page)}catch(e){showError(e)}});
 async function ensureFamily(){
- const uref=doc(db,"users",currentUser.uid), usnap=await getDoc(uref);
- if(usnap.exists()&&usnap.data().familyId){familyId=usnap.data().familyId;localStorage.setItem("cocoFamilyId",familyId);return}
+ const uref=doc(db,"users",currentUser.uid),usnap=await getDoc(uref);
+ if(usnap.exists()&&usnap.data().familyId){familyId=usnap.data().familyId;return}
+ const code=(prompt("家族から招待コードを受け取っている場合は入力してね。新しく家族を作る場合は空欄のままOK。","")||"").trim().toUpperCase();
+ if(code){await joinFamilyWithCode(code);return}
  const name=prompt("家族の名前を入力してね（例：〇〇家）","わが家")||"わが家";
  const fref=doc(collection(db,"families"));familyId=fref.id;
  await setDoc(fref,{name,owner:currentUser.uid,members:[currentUser.uid],createdAt:serverTimestamp(),settings:{}});
  await setDoc(uref,{displayName:currentUser.displayName||"",email:currentUser.email||"",familyId,createdAt:serverTimestamp()});
- localStorage.setItem("cocoFamilyId",familyId);
+}
+function randomCode(){const chars="ABCDEFGHJKLMNPQRSTUVWXYZ23456789";const bytes=crypto.getRandomValues(new Uint8Array(10));return Array.from(bytes,b=>chars[b%chars.length]).join("")}
+async function createInvite(){
+ const code=randomCode(),ref=doc(db,"invites",code);
+ await setDoc(ref,{familyId,createdBy:currentUser.uid,createdAt:serverTimestamp(),expiresAt:Date.now()+86400000,used:false,usedBy:null});
+ return code;
+}
+async function joinFamilyWithCode(code){
+ const invRef=doc(db,"invites",code),userRef=doc(db,"users",currentUser.uid);
+ await runTransaction(db,async tx=>{
+  const inv=await tx.get(invRef);
+  if(!inv.exists())throw new Error("招待コードが見つからないよ。");
+  const data=inv.data();
+  if(data.used||typeof data.expiresAt!=="number"||data.expiresAt<Date.now())throw new Error("招待コードは使用済みか期限切れだよ。");
+  const famRef=doc(db,"families",data.familyId),fam=await tx.get(famRef);
+  if(!fam.exists())throw new Error("招待先の家族が見つからないよ。");
+  const family=fam.data();
+  if(family.members.includes(currentUser.uid))throw new Error("すでにこの家族のメンバーだよ。");
+  tx.update(famRef,{members:[...family.members,currentUser.uid],updatedAt:serverTimestamp(),lastInviteCode:code});
+  tx.update(invRef,{used:true,usedBy:currentUser.uid,usedAt:serverTimestamp()});
+  tx.set(userRef,{displayName:currentUser.displayName||"",email:currentUser.email||"",familyId:data.familyId,createdAt:serverTimestamp()});
+ });
+ familyId=(await getDoc(userRef)).data().familyId;
 }
 async function renderPage(p){
  page=p;document.querySelectorAll("nav button").forEach(b=>b.classList.toggle("active",b.dataset.page===p));
  const titles={home:"おかえりなさい",schedule:"家族の予定",tasks:"やることリスト",kids:"子ども管理",more:"家族のツール"};
  let body=`<div class="hero"><h1>${titles[p]||"COCO"}</h1><p>毎日のことを、家族みんなで共有しよう。</p></div>`;
- if(p==="home"){
-  body+=`<div class="section-title">今日のCOCO <span class="tag">FAMILY</span></div><div class="grid">
-  ${tile("♡","予定を確認","家族のカレンダー","schedule")}${tile("✓","タスクを見る","忘れ物・提出物も管理","tasks")}${tile("✿","子ども管理","園・学校・習い事","kids")}${tile("🛍","買い物リスト","買うものを共有","shopping")}${tile("⌂","家計・投資","収支や資産の記録","money")}${tile("⌘","物件メモ","気になる家を比較","properties")}</div>
-  <div class="section-title">最近のタスク</div><div id="recent" class="panel"><div class="empty">読み込み中…</div></div>`;
-  $("main").innerHTML=body;
-  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>renderPage(b.dataset.go));
-  await loadRecent();return;
- }
- if(p==="schedule")body+=form("予定を追加","title","日付","date","schedules","日時・場所など");
- if(p==="tasks")body+=form("タスクを追加","title","期限","date","tasks","担当者・メモ");
- if(p==="kids")body+=form("子どもの情報を追加","title","生年月日","date","children","園・学校・習い事など");
- if(p==="shopping")body+=form("買い物を追加","title","必要な日","date","shopping","数量・お店など");
- if(p==="money")body+=form("家計・投資の記録","title","日付","date","household","金額・分類・メモ");
- if(p==="properties")body+=form("物件を保存","title","確認日","date","properties","URL・価格・間取りなど");
- if(p==="work")body+=form("仕事タスクを追加","title","期限","date","work","担当・メモ");
- if(p==="ai")body+=`<div class="panel"><h3>COCOメモ</h3><p class="muted">今は無料で使えるメモ機能。外部AI APIの課金なしで利用できるよ。</p><textarea id="aiText" placeholder="考えごとや、忘れたくないことを書いてね"></textarea><button class="btn" id="aiSave">メモを保存</button></div>`;
- if(p==="more")body+=`<div class="grid">${tile("🛍","買い物リスト","家族で共有","shopping")}${tile("￥","家計・投資","収支と資産","money")}${tile("⌂","物件メモ","URLや比較メモ","properties")}${tile("▣","仕事","仕事のタスク","work")}${tile("✧","AI秘書メモ","無料の記録・整理","ai")}</div><div class="panel"><h3>家族を招待</h3><p class="muted">家族IDを相手に伝えて、次の段階で安全な招待機能を追加するよ。</p><input readonly value="${esc(familyId)}" id="familyCode"><button class="btn secondary" id="copyFamily">家族IDをコピー</button></div>`;
- $("main").innerHTML=body;
- document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>renderPage(b.dataset.go));
+ if(p==="home"){body+=`<div class="section-title">今日のCOCO <span class="tag">FAMILY</span></div><div class="grid">${tile("♡","予定を確認","家族のカレンダー","schedule")}${tile("✓","タスクを見る","忘れ物・提出物も管理","tasks")}${tile("✿","子ども管理","園・学校・習い事","kids")}${tile("🛍","買い物リスト","買うものを共有","shopping")}${tile("⌂","家計・投資","収支や資産の記録","money")}${tile("⌘","物件メモ","気になる家を比較","properties")}</div><div class="section-title">最近のタスク</div><div id="recent" class="panel"><div class="empty">読み込み中…</div></div>`;$("main").innerHTML=body;wireTiles();await loadRecent();return}
+ if(p==="schedule")body+=form("予定を追加","日付","schedules","日時・場所など");
+ if(p==="tasks")body+=form("タスクを追加","期限","tasks","担当者・メモ");
+ if(p==="kids")body+=form("子どもの情報を追加","生年月日","children","園・学校・習い事など");
+ if(p==="shopping")body+=form("買い物を追加","必要な日","shopping","数量・お店など");
+ if(p==="money")body+=form("家計・投資の記録","日付","household","金額・分類・メモ");
+ if(p==="properties")body+=form("物件を保存","確認日","properties","URL・価格・間取りなど");
+ if(p==="work")body+=form("仕事タスクを追加","期限","work","担当・メモ");
+ if(p==="ai")body+=`<div class="panel"><h3>COCOメモ</h3><p class="muted">今は無料で使えるメモ機能。</p><textarea id="aiText" placeholder="考えごとや、忘れたくないことを書いてね"></textarea><button class="btn" id="aiSave">メモを保存</button></div>`;
+ if(p==="more")body+=`<div class="grid">${tile("🛍","買い物リスト","家族で共有","shopping")}${tile("￥","家計・投資","収支と資産","money")}${tile("⌂","物件メモ","URLや比較メモ","properties")}${tile("▣","仕事","仕事のタスク","work")}${tile("✧","AI秘書メモ","無料の記録・整理","ai")}</div><div class="panel"><h3>家族を招待</h3><p class="muted">招待コードは24時間有効・1回限り。</p><button class="btn" id="makeInvite">招待コードを発行</button><div id="inviteResult"></div></div>`;
+ $("main").innerHTML=body;wireTiles();
  const add=$("addRecord");if(add)add.onclick=()=>saveRecord(add.dataset.col);
  if($("aiSave"))$("aiSave").onclick=()=>saveRecord("ai_memos","aiText");
- if($("copyFamily"))$("copyFamily").onclick=async()=>{await navigator.clipboard.writeText(familyId);alert("家族IDをコピーしたよ")};
+ if($("makeInvite"))$("makeInvite").onclick=async()=>{try{const code=await createInvite();$("inviteResult").innerHTML=`<div class="notice">パパにこのコードを伝えてね（24時間有効・1回限り）<h2>${code}</h2></div>`}catch(e){showError(e)}};
  await loadRecords(p);
 }
 function tile(icon,title,desc,go){return `<button class="tile" data-go="${go}"><span class="emoji">${icon}</span><strong>${title}</strong><small>${desc}</small></button>`}
-function form(heading,titleLabel,dateLabel,dateType,col,placeholder){return `<div class="panel"><h3>${heading}</h3><label class="muted">${titleLabel}</label><input id="recordTitle" placeholder="入力してね"><label class="muted">${dateLabel}</label><input id="recordDate" type="${dateType}"><textarea id="recordNote" placeholder="${placeholder}"></textarea><button class="btn" id="addRecord" data-col="${col}">保存する</button></div><div class="section-title">登録した内容</div><div id="records" class="panel"><div class="empty">読み込み中…</div></div>`}
-async function saveRecord(col,noteId="recordNote"){
- const title=$(noteId==="aiText"?"aiText":"recordTitle")?.value?.trim()||"";
- const note=$(noteId==="aiText"?"aiText":"recordNote")?.value?.trim()||"";
- const date=$("recordDate")?.value||"";
- if(!title&&!note){alert("内容を入力してね");return}
- try{await addDoc(subcol(col),{title:title||"メモ",note,date,done:false,createdBy:currentUser.uid,createdAt:serverTimestamp()});if($("recordTitle"))$("recordTitle").value="";if($("recordNote"))$("recordNote").value="";if($("aiText"))$("aiText").value="";await loadRecords(page)}catch(e){showError(e)}
-}
-async function loadRecords(p){
- const map={schedule:"schedules",tasks:"tasks",kids:"children",shopping:"shopping",money:"household",properties:"properties",work:"work",ai:"ai_memos"};
- const col=map[p];if(!col)return;
- try{const snap=await getDocs(subcol(col));const el=$("records");if(!el)return;el.innerHTML=snap.empty?'<div class="empty">まだ登録がないよ。上から追加してね。</div>':snap.docs.map(d=>recordHtml(d.id,d.data(),col)).join("");wireRecordButtons(col)}catch(e){showError(e)}
-}
-function recordHtml(id,d,col){return `<div class="item"><div class="grow"><strong>${esc(d.title||"メモ")}</strong><small>${esc(d.date||"日付なし")}　${esc(d.note||"")}</small></div><button data-delete="${id}">削除</button></div>`}
+function wireTiles(){document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>renderPage(b.dataset.go))}
+function form(heading,dateLabel,col,placeholder){return `<div class="panel"><h3>${heading}</h3><label class="muted">内容</label><input id="recordTitle" placeholder="入力してね"><label class="muted">${dateLabel}</label><input id="recordDate" type="date"><textarea id="recordNote" placeholder="${placeholder}"></textarea><button class="btn" id="addRecord" data-col="${col}">保存する</button></div><div class="section-title">登録した内容</div><div id="records" class="panel"><div class="empty">読み込み中…</div></div>`}
+async function saveRecord(col,noteId="recordNote"){const title=$(noteId==="aiText"?"aiText":"recordTitle")?.value?.trim()||"",note=$(noteId==="aiText"?"aiText":"recordNote")?.value?.trim()||"",date=$("recordDate")?.value||"";if(!title&&!note){alert("内容を入力してね");return}try{await addDoc(subcol(col),{title:title||"メモ",note,date,done:false,createdBy:currentUser.uid,createdAt:serverTimestamp()});if($("recordTitle"))$("recordTitle").value="";if($("recordNote"))$("recordNote").value="";if($("aiText"))$("aiText").value="";await loadRecords(page)}catch(e){showError(e)}}
+async function loadRecords(p){const map={schedule:"schedules",tasks:"tasks",kids:"children",shopping:"shopping",money:"household",properties:"properties",work:"work",ai:"ai_memos"},col=map[p];if(!col)return;try{const snap=await getDocs(subcol(col)),el=$("records");if(!el)return;el.innerHTML=snap.empty?'<div class="empty">まだ登録がないよ。上から追加してね。</div>':snap.docs.map(d=>recordHtml(d.id,d.data())).join("");wireRecordButtons(col)}catch(e){showError(e)}}
+function recordHtml(id,d){return `<div class="item"><div class="grow"><strong>${esc(d.title||"メモ")}</strong><small>${esc(d.date||"日付なし")}　${esc(d.note||"")}</small></div><button data-delete="${id}">削除</button></div>`}
 function wireRecordButtons(col){document.querySelectorAll("[data-delete]").forEach(b=>b.onclick=async()=>{if(confirm("この内容を削除する？")){await deleteDoc(doc(db,"families",familyId,col,b.dataset.delete));await loadRecords(page)}})}
-async function loadRecent(){try{const s=await getDocs(subcol("tasks"));const el=$("recent");el.innerHTML=s.empty?'<div class="empty">タスクはまだないよ。</div>':s.docs.slice(0,4).map(d=>`<div class="item"><div class="grow"><strong>${esc(d.data().title)}</strong><small>${esc(d.data().date||"")}</small></div></div>`).join("")}catch(e){$("recent").innerHTML='<div class="empty">タスクを読み込めなかったよ。</div>'}}
+async function loadRecent(){try{const s=await getDocs(subcol("tasks")),el=$("recent");el.innerHTML=s.empty?'<div class="empty">タスクはまだないよ。</div>':s.docs.slice(0,4).map(d=>`<div class="item"><div class="grow"><strong>${esc(d.data().title)}</strong><small>${esc(d.data().date||"")}</small></div></div>`).join("")}catch(e){$("recent").innerHTML='<div class="empty">タスクを読み込めなかったよ。</div>'}}
 </script>
 </body>
 </html>
